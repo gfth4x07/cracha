@@ -1,0 +1,14 @@
+body{
+  font-family:arial, verdana;
+  color:#333333;
+  font-size:20px;
+}
+body .help{
+  color:#999999;
+  font-size:15px;
+}
+#form_wrapper,#preview_wrapper{
+  width:50%;
+  float:left;
+}
+
