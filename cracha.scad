@@ -5,11 +5,14 @@
 
 /* [Configuracoes] */
 //escrito no cracha
-nome="oda";
+nome="gabriel";
 //em milimetros
 tamanho_da_fonte=10;
+//espaçamento das letras
+spacing = 1.05;
 //direita e esquerda
-nome_x=17;
+centro_x = true;
+nome_x=7;
 //sobe e desce
 nome_y=18;
 // altura vao no cabo do guarda-chuva
@@ -19,12 +22,12 @@ vao_do_cabo_y=17;
 
 /////////////////////////////////////////////////////////////////////
 
-include <write.scad>
-l=2*1;
-
 difference() {
 	import("base.stl");
-	translate([26,vao_do_cabo_y,l/2]) cube([4,altura_do_vao_do_cabo,l]);
+	translate([26,vao_do_cabo_y,1]) cube([4,altura_do_vao_do_cabo,1]);
 }
-scale_factor=tamanho_da_fonte/9;
-translate([nome_x,nome_y,0]) scale([scale_factor,scale_factor,1]) write(nome,l);
+scale_factor = tamanho_da_fonte/1.08;
+
+if(centro_x){
+translate([28,nome_y,1]) linear_extrude(height = 1) text(nome, font = "Garoa Hacker Clube",size = scale_factor,halign = "center",spacing = spacing);}
+else{translate([nome_x,nome_y,1]) linear_extrude(height = 1) text(nome, font = "Garoa Hacker Clube",size = scale_factor);}
